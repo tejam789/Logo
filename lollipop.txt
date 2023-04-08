@@ -1,0 +1,17 @@
+TO halfCircle :radius
+  repeat 180 [fd :radius rt 1]
+END
+To spiral :radius
+  wait 1
+  setcolor pick [red pink orange yellow]
+  if :radius < 2 [halfCircle :radius spiral :radius+0.1]
+END
+TO lollipop
+  setpensize [5 5]
+  bk 100 fd 300
+  spiral 0.1
+END
+
+clearscreen
+lollipop
+hideturtle

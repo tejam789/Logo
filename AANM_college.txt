@@ -1,0 +1,37 @@
+clearscreen
+To setToBottomCorner
+ penup bk 200 rt 90 bk 600 lt 90 pendown
+END
+setToBottomCorner
+To Square :size
+  repeat 4 [fd :size rt 90]
+END
+
+To Rect :height :width
+  repeat 2 [fd :height rt 90 fd :width rt 90]
+END
+To PositionForWindow
+penup fd 50 rt 90 fd 10 lt 90 pendown
+END
+To drawWindows
+	Rect 40 30 penup rt 90 fd 50 lt 90 pendown Rect 40 30
+END
+To setToStart
+ penup bk 50 lt 90 fd 60 rt 90 pendown
+END
+
+To drawAClass
+	Rect 120 100 PositionForWindow drawWindows setToStart
+END
+To positionForNextClass
+  penup rt 90 fd 100 lt 90 pendown
+END
+
+To drawASide
+ repeat 3 [repeat 5 [drawAClass positionForNextClass] penup fd 120 lt 90 fd 500 rt 90 pendown]
+END
+To setToDrawMiddle
+  penup rt 90 fd 500 rt 90 fd 360 rt 180 pendown
+END
+drawASide setToDrawMiddle Rect 120 150 fd 120 Rect 240 50 rt 90 fd 50 lt 90 drawAClass fd 120 drawAClass  penup bk 240 rt 90 fd 100 lt 90 pendown drawASide
+hideturtle

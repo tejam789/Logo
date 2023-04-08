@@ -1,0 +1,3 @@
+To setToBottomCorner
+ penup bk 350 rt 90 bk 600 lt 90 pendown
+END

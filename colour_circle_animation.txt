@@ -1,0 +1,29 @@
+
+
+TO filledCircle :size
+  make "angle 1
+  repeat 360 [ setcolor pick [ green red pink orange yellow blue violet indigo black ] fd :size rt 180 bk :size rt 180 home rt :angle make "angle :angle+1]
+END
+
+
+To Line :size
+   fd :size lt 45 fd :size rt 90 fd :size lt 45 fd :size
+
+END
+
+TO design :angle :index :size
+  setcolor pick [ green red blue violet indigo black ]
+  Line :size rt 180 Line :Size
+  rt 180 fd :size lt 45 repeat 90 [ setcolor pick [ green red pink orange yellow blue violet indigo black ] fd :size bk :size rt 1]
+  home rt :angle*:index
+
+  if 360/:angle > :index [ design :angle :index + 1 :size ]
+END
+
+TO filledCircleMultiColor :size
+  repeat 360 [ setcolor pick [ green red pink orange yellow blue violet indigo black ] fd :size bk :size rt 1]
+END
+repeat 200 [ wait 3 clearscreen home
+design 45 1 100
+  filledCircle 25 fd 10 ]
+

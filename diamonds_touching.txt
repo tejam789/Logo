@@ -1,0 +1,18 @@
+To Line :size
+  fd :size lt 45 fd :size rt 90 fd :size lt 45 fd :size
+END
+TO pickColor :index
+  setcolor pick [ green ]
+  if :index%3 > 0 [ setcolor pick [ red ] ]
+  if :index%3 > 1 [ setcolor pick [ blue ] ]
+END
+TO design :angle :index :size
+  pickColor :index
+  Line :size rt 180 Line :Size home rt :angle*:index
+  if 360/:angle > :index [ design :angle :index + 1 :size ]
+END
+
+clearscreen
+setcolor pick [green red]
+design 45 1 30
+hideturtle

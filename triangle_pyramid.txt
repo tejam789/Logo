@@ -1,0 +1,21 @@
+clearscreen
+setcolor pick [black]
+TO Triangle :size
+  setcolor pick [red blue green black orange ]
+  rt 30 fd :size rt 120 fd :size rt 120 fd :size rt 90
+END
+
+To DrawTriangles :count :size
+  repeat :count [
+    Triangle :size penup rt 90 fd :size lt 90 pendown
+  ]
+  penup lt 90 fd :count * :size rt 90 pendown
+END
+
+To Pyramid :levels :size
+  if :levels > 0 [DrawTriangles :levels :size rt 30 fd :size lt 30 Pyramid :levels-1 :size]
+
+END
+penup bk 200 rt 90 bk 600 lt 90 pendown
+Pyramid 6 100
+

@@ -1,0 +1,17 @@
+TO halfSquare :size
+  fd :size/2 rt 90 fd :size rt 90 fd :size/2
+END
+To spiral :radius
+  wait 1
+  setcolor pick [red pink green violet purple orange yellow]
+  if :radius < 150 [halfSquare :radius spiral :radius+ 5]
+END
+TO lollipop
+  setpensize [5 5]
+  bk 100 fd 300
+  spiral 5
+END
+
+clearscreen
+lollipop
+hideturtle
